@@ -3,14 +3,13 @@
 wifiCenter::wifiCenter() = default;
 
 bool wifiCenter::connect() {
+    ledCenter led;
     WiFi.end();
     delay(100);
-    Serial.println("ssid: " + String(wifiName));
-    Serial.println("password: " + String(wifiPassword));
     WiFi.begin(wifiName, wifiPassword);
-
     unsigned long start = millis();
-    while (WiFi.status() != WL_CONNECTED && millis() - start < 15000){}
-    Serial.println("WiFi: Connected?");
+    led.throwReqoust("wifi");
+    while (WiFi.status() != WL_CONNECTED && millis() - start < 15000) {
+    }
     return WiFi.status() == WL_CONNECTED;
 }

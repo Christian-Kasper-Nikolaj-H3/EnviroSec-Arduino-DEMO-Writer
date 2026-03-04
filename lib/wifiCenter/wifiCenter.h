@@ -3,6 +3,7 @@
 
 #pragma once
 #include <WiFiS3.h>
+#include <ledCenter.h>
 #include "../../include/secrets.h"
 
 class wifiCenter {

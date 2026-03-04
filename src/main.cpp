@@ -28,9 +28,8 @@ void setup() {
     SPI.begin(); // init SPI bus
     rfid.PCD_Init(); // init MFRC522
 
-    if (!wifi.connect()) {
-        Serial.println("Connected to WiFi");
-    }
+    if (wifi.connect()) ledCenter.throwReqoust("wifiConnected");
+    else ledCenter.throwError("wifi");
 
     Serial.println("Tap RFID/NFC Tag on reader");
 }
@@ -47,12 +46,17 @@ void loop() {
                             (i != 3 ? ":" : "");
             }
             strID.toUpperCase();
-            ledCenter.throwReqoust("test");
 
             Serial.print("RFID tag detected: ");
             Serial.println(strID);
 
-            api.scanCard(strID);
+            ledCenter.throwReqoust("cardDetected");
+
+            if (api.scanCard(strID)) {
+                ledCenter.throwReqoust("cardScanned");
+            }else {
+                ledCenter.throwError("cardNotScanned");
+            }
 
 
             rfid.PICC_HaltA(); // halt PICC
