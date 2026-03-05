@@ -3,7 +3,6 @@
 #include <MFRC522.h>
 #include <ArduinoJson.h>
 #include <wifiCenter.h>
-#include <sendToAPI.h>
 #include <ApiClient.h>
 
 #include <ledCenter.h>
@@ -16,8 +15,6 @@ ledCenter ledCenter;
 #define RST_PIN 9
 
 MFRC522 rfid(SS_PIN, RST_PIN);
-
-String strID;
 
 void setup() {
     Serial.begin(9600);
@@ -37,6 +34,7 @@ void setup() {
 void loop() {
     if (rfid.PICC_IsNewCardPresent()) { // new tag is available
         if (rfid.PICC_ReadCardSerial()) { // NUID has been readed
+            String strID;
 
             Serial.println();
             for (byte i = 0; i < 4; i++) {
