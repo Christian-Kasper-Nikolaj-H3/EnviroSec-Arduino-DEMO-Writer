@@ -5,17 +5,14 @@
 
 #include <Arduino.h>
 #include <SPI.h>
-#include <MFRC522.h>
 
-#define RED_PIN 6
-#define GREEN_PIN 4
-#define BLUE_PIN 3
+#define RED_PIN 2
+#define GREEN_PIN 3
+#define BLUE_PIN 4
 
 // LED timing
 #define LED_DURATION 5000
 #define RESPONSE_TIMEOUT 5000
-
-constexpr float BRIGHTNESS = 0.3;
 
 class ledCenter {
 
