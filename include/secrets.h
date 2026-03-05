@@ -1,8 +1,8 @@
 ﻿#pragma once
 
 //for Wi-Fi connect
-inline auto wifiName = "Hassellunden-unifi";
-inline auto wifiPassword = "Fischer38";
+inline auto wifiName = "Lab-ZBC";
+inline auto wifiPassword = "Prestige#PuzzledCASH48!";
 
 //for API
 inline auto apiDomain = "10.101.30.141";

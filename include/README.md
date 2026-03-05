@@ -1,3 +1,5 @@
+Make file secrets.h like this:
+
 #pragma once
 
 //for Wi-Fi connect
@@ -8,6 +10,7 @@ inline auto wifiPassword = "Prestige#PuzzledCASH48!";
 inline IPAddress apiDomain = "10.101.30.141";
 inline u_int16_t apiPort = 3000;
 
+---
 
 This directory is intended for project header files.
 
